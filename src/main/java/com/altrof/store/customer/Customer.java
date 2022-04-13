@@ -1,24 +1,29 @@
 package com.altrof.store.customer;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+
+import lombok.*;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
+import java.util.UUID;
 
-@Entity
-@Table
+
 @Data
+@EqualsAndHashCode
+@Entity(name = "Customer")
+@Table(name = "customers")
 @RequiredArgsConstructor
 public class Customer {
     @Id
-    @SequenceGenerator(
-            name = "customer_sequence",
-            sequenceName = "customer_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "customer_sequence"
-    )
-    private Long id;
+    @Column(name = "customer_id")
+    private UUID customerId = UUID.randomUUID(); // registration code
+
+    @Column(nullable = false, name = "full_name")
+    private String fullName;
+    @Column(nullable = false, name = "email")
+    private String email;
+    @Column(nullable = false, name = "phone_number")
+    private Long phoneNumber;
+
+
 }
