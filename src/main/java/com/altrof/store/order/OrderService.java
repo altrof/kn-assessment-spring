@@ -72,9 +72,6 @@ public class OrderService {
             if (orderRepository.findOrderByCustomer(customer).isPresent()) {
                 order = orderRepository.findOrderByCustomer(customer).get();
             }
-            if (orderRepository.findByOrderLines_Product_Id(productId).isPresent()) {
-                System.out.println("test");
-            }
             OrderLine orderLine = new OrderLine(product, Integer.parseInt(payload.get("quantity").toString()));
             order.getOrderLines().add(orderLine);
             orderRepository.save(order);
@@ -108,11 +105,5 @@ public class OrderService {
             orderRepository.save(order.get());
         }
 
-
-
-
-        //orderRepository.save();
     }
-
-
 }

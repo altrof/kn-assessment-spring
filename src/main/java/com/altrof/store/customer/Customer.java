@@ -1,15 +1,12 @@
 package com.altrof.store.customer;
 
-
 import lombok.*;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import java.util.UUID;
 
 
 @Data
-@EqualsAndHashCode
 @Entity(name = "Customer")
 @Table(name = "customers")
 @RequiredArgsConstructor
@@ -24,6 +21,5 @@ public class Customer {
     private String email;
     @Column(nullable = false, name = "phone_number")
     private Long phoneNumber;
-
 
 }
