@@ -79,30 +79,44 @@ public class OrderService {
 
     }
 
-    public void setOrderLineQuantity(Map<String, Object> payload) {
+    public void updateOrderLineProductQuantity(Map<String, Object> payload) {
 
-        if (payload == null || !payload.containsKey("orderLineId") || !payload.containsKey("quantity")) {
+
+
+        if (payload == null || !payload.containsKey("customerId") || !payload.containsKey("productId")
+                || !payload.containsKey("quantity") || !payload.containsKey("orderId")) {
             throw new ApiRequestException("Not all arguments passed..");
         }
 
-        if (!uuidValidator.test(payload.get("orderLineId").toString())) {
-            throw new ApiRequestException("uuid is not valid");
+        if (!uuidValidator.test(payload.get("customerId").toString())) {
+            throw new ApiRequestException("UUID of customer is not valid");
+        }
+
+        if (!uuidValidator.test(payload.get("productId").toString())) {
+            throw new ApiRequestException("UUID of product is not valid");
+        }
+
+        if (!uuidValidator.test(payload.get("orderId").toString())) {
+            throw new ApiRequestException("UUID of product is not valid");
         }
 
         if (Integer.parseInt(payload.get("quantity").toString()) <= 0) {
             throw new ApiRequestException("quantity cannot be zero or less than zero.");
         }
 
-        UUID orderLineId = UUID.fromString(payload.get("orderLineId").toString());
-        Optional<OrderLine> orderLine = orderRepository.findOrderLineById(orderLineId);
+        UUID orderId = UUID.fromString(payload.get("orderId").toString());
+        UUID customerId = UUID.fromString(payload.get("customerId").toString());
+        UUID productId = UUID.fromString(payload.get("productId").toString());
+
+        Optional<OrderLine> orderLine = orderRepository
+                .findOrderLineByOrderIdAndCustomerIdAndProductId(orderId, customerId, productId);
         if (orderLine.isEmpty()) {
             throw new ApiRequestException("Order does not have line with this uuid");
         } else {
             Optional<Order> order = orderRepository.findOrderByOrderLine(orderLine.get());
-            orderLine.get()
-                    .setProductQuantity(
+            orderLine.get().setProductQuantity(
                             Integer.parseInt(payload.get("quantity").toString()));
-            orderRepository.save(order.get());
+            order.ifPresent(value -> orderRepository.save(value));
         }
 
     }

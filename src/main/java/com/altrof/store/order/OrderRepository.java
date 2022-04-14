@@ -13,7 +13,9 @@ import java.util.UUID;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, UUID> {
+
     Optional<Order> findOrderByCustomer(Customer customer);
+
     List<Order> findAllByDate(LocalDate date);
 
     @Query("SELECT o FROM Order o JOIN o.customer c WHERE c.customerId = :customerId")
@@ -22,8 +24,8 @@ public interface OrderRepository extends JpaRepository<Order, UUID> {
     @Query("SELECT o FROM Order o JOIN o.orderLines ol JOIN ol.product p WHERE p.id = :productId")
     Optional<Order> findByOrderLines_Product_Id(UUID productId);
 
-    @Query("SELECT ol FROM OrderLine ol WHERE ol.orderLineId = :orderLineId")
-    Optional<OrderLine> findOrderLineById(UUID orderLineId);
+    @Query("SELECT ol FROM Order o JOIN o.orderLines ol WHERE o.customer.customerId = :customerId AND o.id = :orderId AND ol.product.id = :productId")
+    Optional<OrderLine> findOrderLineByOrderIdAndCustomerIdAndProductId(UUID orderId, UUID customerId, UUID productId);
 
     @Query("SELECT o FROM Order o JOIN o.orderLines ol WHERE ol = :orderLine")
     Optional<Order> findOrderByOrderLine(OrderLine orderLine);
