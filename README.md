@@ -1,8 +1,13 @@
 # kn-assessment-spring
 KN BE Task for Assessment 
 
-## V1 API Requests
 
+- [V1 API Requests (uri)](#v1-api-requests-uri)
+  - [Some Example Requests with Postman](#some-example-requests-with-postman)
+
+ 
+
+## V1 API Requests (uri)
 #### *For all POST and PUT requests, Content-Type is `application/json`* 
 
 | Method   | Url                                                | Passed Properties                                                         | Description                                  | Example                                                                               |
@@ -22,8 +27,10 @@ KN BE Task for Assessment
 <br><br>
 <div align="center"><img src="./assets/img/postman.png" alt="postman" width="310"/></div>
 
-### Some Example Requests with Postman:
+### Some Example Requests with Postman
 
 > #### *Get All Customers*
 > 
 > <img src="./assets/img/screenshot-postman-1.png" alt="screen-postman" width="600" />
+
+
