@@ -5,6 +5,7 @@ import com.altrof.store.customer.CustomerRepository;
 import com.altrof.store.exception.ApiRequestException;
 import com.altrof.store.product.Product;
 import com.altrof.store.product.ProductRepository;
+import com.altrof.store.validators.DateValidator;
 import com.altrof.store.validators.UUIDValidator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class OrderService {
     private CustomerRepository customerRepository;
     private ProductRepository productRepository;
     private final UUIDValidator uuidValidator;
+    private final DateValidator dateValidator;
 
     public List<Order> getOrders() {
         return orderRepository.findAll();
@@ -37,16 +39,19 @@ public class OrderService {
         return null;
     }
 
-    public List<Order> getOrdersByDate(String date){
+    public List<Order> getOrdersByDate(String date) {
+        if(!dateValidator.test(date)) {
+            throw new ApiRequestException("This date format is not support. Please type date in format yyyy-MM-dd");
+        }
         return orderRepository.findAllByDate(LocalDate.parse(date)).stream().toList();
     }
 
-    public List<Order> getOrdersByProduct(String productId){
+    public List<Order> getOrdersByProduct(String productId) {
         return orderRepository.findByOrderLines_Product_Id(UUID.fromString(productId)).stream().toList();
     }
 
 
-    public List<Order> getOrdersByCustomer(String customerId){
+    public List<Order> getOrdersByCustomer(String customerId) {
         Optional<Customer> customerOptional = customerRepository.findById(UUID.fromString(customerId));
         if(customerOptional.isEmpty()) {
            throw new IllegalStateException("No customer with this id");
