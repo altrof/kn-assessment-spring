@@ -33,10 +33,10 @@ public class OrderService {
     }
 
     public Order getOrder(String orderId) {
-        if(orderRepository.findById(UUID.fromString(orderId)).isPresent()) {
-            return orderRepository.findById(UUID.fromString(orderId)).get();
+        if(orderRepository.findById(UUID.fromString(orderId)).isEmpty()) {
+            throw new ApiRequestException("No order with this id.");
         }
-        return null;
+        return orderRepository.findById(UUID.fromString(orderId)).get();
     }
 
     public List<Order> getOrdersByDate(String date) {
@@ -70,6 +70,7 @@ public class OrderService {
 
             UUID customerId =  UUID.fromString(payload.get("customerId").toString());
             UUID productId = UUID.fromString(payload.get("productId").toString());
+            int quantityProps = Integer.parseInt(payload.get("quantity").toString());
 
             Customer customer = customerRepository.getById(customerId);
             Product product = productRepository.getById(productId);
@@ -77,8 +78,21 @@ public class OrderService {
             if (orderRepository.findOrderByCustomer(customer).isPresent()) {
                 order = orderRepository.findOrderByCustomer(customer).get();
             }
-            OrderLine orderLine = new OrderLine(product, Integer.parseInt(payload.get("quantity").toString()));
-            order.getOrderLines().add(orderLine);
+
+            OrderLine orderLine;
+            // If order line is already exist with these orderId, customerId, productId,
+            // then just increment to passed value
+            if (orderRepository.findOrderLineByOrderIdAndCustomerIdAndProductId(
+                    order.getId(), customerId, productId).isEmpty()) {
+
+                orderLine = new OrderLine(product, quantityProps);
+                order.getOrderLines().add(orderLine);
+            } else {
+                orderLine = orderRepository.findOrderLineByOrderIdAndCustomerIdAndProductId(
+                        order.getId(), customerId, productId).get();
+                orderLine.setProductQuantity(orderLine.getProductQuantity() + quantityProps);
+            }
+
             orderRepository.save(order);
         }
 
@@ -102,7 +116,7 @@ public class OrderService {
         }
 
         if (!uuidValidator.test(payload.get("orderId").toString())) {
-            throw new ApiRequestException("UUID of product is not valid");
+            throw new ApiRequestException("UUID of order is not valid");
         }
 
         if (Integer.parseInt(payload.get("quantity").toString()) <= 0) {
