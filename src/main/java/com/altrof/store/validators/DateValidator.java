@@ -1,8 +1,11 @@
 package com.altrof.store.validators;
 
+import org.springframework.stereotype.Component;
+
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
+@Component
 public class DateValidator implements Predicate<String> {
 
     private static final Predicate<String> IS_DATE_VALID =
