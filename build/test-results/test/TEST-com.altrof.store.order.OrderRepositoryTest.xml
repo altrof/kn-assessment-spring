@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order repository test" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-04-17T20:49:03" hostname="altrof-ubuntu" time="0.096">
+  <properties/>
+  <testcase name="itShouldFindAllOrderByCustomerIdAndReturnTrue()" classname="com.altrof.store.order.OrderRepositoryTest" time="0.064"/>
+  <testcase name="Passed 2 obj" classname="com.altrof.store.order.OrderRepositoryTest" time="0.03"/>
+  <system-out><![CDATA[2022-04-17 23:49:03.143  INFO 12322 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.altrof.store.order.OrderRepositoryTest], using SpringBootContextLoader
+2022-04-17 23:49:03.144  INFO 12322 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.altrof.store.order.OrderRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-04-17 23:49:03.145  INFO 12322 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.altrof.store.order.OrderRepositoryTest]: OrderRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-04-17 23:49:03.158  INFO 12322 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.altrof.store.StoreApplication for test class com.altrof.store.order.OrderRepositoryTest
+2022-04-17 23:49:03.159  INFO 12322 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-04-17 23:49:03.160  INFO 12322 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@17e8c38c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c4516ec, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@17ea3bc0, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4d93e5bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1c36ab22, org.springframework.test.context.support.DirtiesContextTestExecutionListener@68303c3e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2ec23ec3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7c2e88b9, org.springframework.test.context.event.EventPublishingTestExecutionListener@556843a5, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3c5044fa, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3db5195, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@b386a17, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1cda75be, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@2213854b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7b1d2f65]
+2022-04-17 23:49:03.170  INFO 12322 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@67e1a5fd testClass = OrderRepositoryTest, testInstance = com.altrof.store.order.OrderRepositoryTest@4b9dc62f, testMethod = itShouldFindAllOrderByCustomerIdAndReturnTrue@OrderRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb3463b testClass = OrderRepositoryTest, locations = '{}', classes = '{class com.altrof.store.StoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5812f68b, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b88ca8c, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@d84bcee4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@22356acd, [ImportsContextCustomizer@2f9236d8 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6ee6f53, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@134d26af, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@97beeaf]; rollback [true]
+Hibernate: 
+    select
+        customer0_.customer_id as customer1_1_0_,
+        customer0_.email as email2_1_0_,
+        customer0_.full_name as full_nam3_1_0_,
+        customer0_.phone_number as phone_nu4_1_0_ 
+    from
+        customers customer0_ 
+    where
+        customer0_.customer_id=?
+Hibernate: 
+    select
+        product0_.product_id as product_1_0_0_,
+        product0_.product_name as product_2_0_0_,
+        product0_.product_price as product_3_0_0_ 
+    from
+        public.products product0_ 
+    where
+        product0_.product_id=?
+Hibernate: 
+    select
+        order0_.order_id as order_id1_3_2_,
+        order0_.customer as customer3_3_2_,
+        order0_.date as date2_3_2_,
+        customer1_.customer_id as customer1_1_0_,
+        customer1_.email as email2_1_0_,
+        customer1_.full_name as full_nam3_1_0_,
+        customer1_.phone_number as phone_nu4_1_0_,
+        orderlines2_.fk_order_id as fk_order4_2_4_,
+        orderlines2_.order_line_id as order_li1_2_4_,
+        orderlines2_.order_line_id as order_li1_2_1_,
+        orderlines2_.product_id as product_3_2_1_,
+        orderlines2_.product_quantity as product_2_2_1_ 
+    from
+        purchase_order order0_ 
+    left outer join
+        customers customer1_ 
+            on order0_.customer=customer1_.customer_id 
+    left outer join
+        order_line orderlines2_ 
+            on order0_.order_id=orderlines2_.fk_order_id 
+    where
+        order0_.order_id=?
+Hibernate: 
+    select
+        orderline0_.order_line_id as order_li1_2_0_,
+        orderline0_.product_id as product_3_2_0_,
+        orderline0_.product_quantity as product_2_2_0_ 
+    from
+        order_line orderline0_ 
+    where
+        orderline0_.order_line_id=?
+Hibernate: 
+    insert 
+    into
+        customers
+        (email, full_name, phone_number, customer_id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        public.products
+        (product_name, product_price, product_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        purchase_order
+        (customer, date, order_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        order_line
+        (product_id, product_quantity, order_line_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    update
+        order_line 
+    set
+        fk_order_id=? 
+    where
+        order_line_id=?
+Hibernate: 
+    select
+        order0_.order_id as order_id1_3_,
+        order0_.customer as customer3_3_,
+        order0_.date as date2_3_ 
+    from
+        purchase_order order0_ 
+    inner join
+        customers customer1_ 
+            on order0_.customer=customer1_.customer_id 
+    where
+        customer1_.customer_id=?
+Hibernate: 
+    select
+        order0_.order_id as order_id1_3_,
+        order0_.customer as customer3_3_,
+        order0_.date as date2_3_ 
+    from
+        purchase_order order0_
+2022-04-17 23:49:03.231  INFO 12322 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@67e1a5fd testClass = OrderRepositoryTest, testInstance = com.altrof.store.order.OrderRepositoryTest@4b9dc62f, testMethod = itShouldFindAllOrderByCustomerIdAndReturnTrue@OrderRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb3463b testClass = OrderRepositoryTest, locations = '{}', classes = '{class com.altrof.store.StoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5812f68b, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b88ca8c, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@d84bcee4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@22356acd, [ImportsContextCustomizer@2f9236d8 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6ee6f53, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@134d26af, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2022-04-17 23:49:03.235  INFO 12322 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@67e1a5fd testClass = OrderRepositoryTest, testInstance = com.altrof.store.order.OrderRepositoryTest@6987b74e, testMethod = itShouldFindAllOrdersByGivenDateAndReturnTrue@OrderRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb3463b testClass = OrderRepositoryTest, locations = '{}', classes = '{class com.altrof.store.StoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5812f68b, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b88ca8c, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@d84bcee4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@22356acd, [ImportsContextCustomizer@2f9236d8 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6ee6f53, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@134d26af, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@97beeaf]; rollback [true]
+Hibernate: 
+    select
+        customer0_.customer_id as customer1_1_0_,
+        customer0_.email as email2_1_0_,
+        customer0_.full_name as full_nam3_1_0_,
+        customer0_.phone_number as phone_nu4_1_0_ 
+    from
+        customers customer0_ 
+    where
+        customer0_.customer_id=?
+Hibernate: 
+    select
+        customer0_.customer_id as customer1_1_0_,
+        customer0_.email as email2_1_0_,
+        customer0_.full_name as full_nam3_1_0_,
+        customer0_.phone_number as phone_nu4_1_0_ 
+    from
+        customers customer0_ 
+    where
+        customer0_.customer_id=?
+Hibernate: 
+    select
+        order0_.order_id as order_id1_3_2_,
+        order0_.customer as customer3_3_2_,
+        order0_.date as date2_3_2_,
+        customer1_.customer_id as customer1_1_0_,
+        customer1_.email as email2_1_0_,
+        customer1_.full_name as full_nam3_1_0_,
+        customer1_.phone_number as phone_nu4_1_0_,
+        orderlines2_.fk_order_id as fk_order4_2_4_,
+        orderlines2_.order_line_id as order_li1_2_4_,
+        orderlines2_.order_line_id as order_li1_2_1_,
+        orderlines2_.product_id as product_3_2_1_,
+        orderlines2_.product_quantity as product_2_2_1_ 
+    from
+        purchase_order order0_ 
+    left outer join
+        customers customer1_ 
+            on order0_.customer=customer1_.customer_id 
+    left outer join
+        order_line orderlines2_ 
+            on order0_.order_id=orderlines2_.fk_order_id 
+    where
+        order0_.order_id=?
+Hibernate: 
+    select
+        order0_.order_id as order_id1_3_2_,
+        order0_.customer as customer3_3_2_,
+        order0_.date as date2_3_2_,
+        customer1_.customer_id as customer1_1_0_,
+        customer1_.email as email2_1_0_,
+        customer1_.full_name as full_nam3_1_0_,
+        customer1_.phone_number as phone_nu4_1_0_,
+        orderlines2_.fk_order_id as fk_order4_2_4_,
+        orderlines2_.order_line_id as order_li1_2_4_,
+        orderlines2_.order_line_id as order_li1_2_1_,
+        orderlines2_.product_id as product_3_2_1_,
+        orderlines2_.product_quantity as product_2_2_1_ 
+    from
+        purchase_order order0_ 
+    left outer join
+        customers customer1_ 
+            on order0_.customer=customer1_.customer_id 
+    left outer join
+        order_line orderlines2_ 
+            on order0_.order_id=orderlines2_.fk_order_id 
+    where
+        order0_.order_id=?
+Hibernate: 
+    insert 
+    into
+        customers
+        (email, full_name, phone_number, customer_id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        customers
+        (email, full_name, phone_number, customer_id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        purchase_order
+        (customer, date, order_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        purchase_order
+        (customer, date, order_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        order0_.order_id as order_id1_3_,
+        order0_.customer as customer3_3_,
+        order0_.date as date2_3_ 
+    from
+        purchase_order order0_ 
+    where
+        order0_.date=?
+Hibernate: 
+    select
+        order0_.order_id as order_id1_3_,
+        order0_.customer as customer3_3_,
+        order0_.date as date2_3_ 
+    from
+        purchase_order order0_
+2022-04-17 23:49:03.262  INFO 12322 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@67e1a5fd testClass = OrderRepositoryTest, testInstance = com.altrof.store.order.OrderRepositoryTest@6987b74e, testMethod = itShouldFindAllOrdersByGivenDateAndReturnTrue@OrderRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb3463b testClass = OrderRepositoryTest, locations = '{}', classes = '{class com.altrof.store.StoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5812f68b, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b88ca8c, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@d84bcee4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@22356acd, [ImportsContextCustomizer@2f9236d8 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6ee6f53, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@134d26af, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
