@@ -1,5 +1,5 @@
 FROM openjdk:17-jdk-alpine
-MAINTAINER altrof
+MAINTAINER altrof.me
 VOLUME /tmp
 EXPOSE 8080
 ARG JAR_FILE=build/libs/store-0.0.1-SNAPSHOT.jar
