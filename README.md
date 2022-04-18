@@ -1,5 +1,6 @@
-# kn-assessment-spring
+# Kuehne+Nagel Internship 2022
 
+<img src="./assets/img/backend-ministack.jpg">
 
 - [Order Management System API](#order-management-system-api)
   - [Tech stack](#tech-stack)
@@ -103,7 +104,8 @@
 # How To
 
 ## Run an application with docker (The Easiest way)
-Please move to the branch: <a href="https://github.com/altrof/kn-assessment-spring/tree/docker"> _`docker`_ </a>
+Please move to the branch: <a href="https://github.com/altrof/kn-assessment-spring/tree/docker"> _`docker`_  (you can click here)
+<img src="./assets/img/containerized.webp" /> </a>
 
 
 ## Run an application without docker
