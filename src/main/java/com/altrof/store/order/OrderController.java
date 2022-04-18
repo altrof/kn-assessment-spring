@@ -48,8 +48,8 @@ public class OrderController {
 
 
     @PutMapping("/change-item-quantity")
-    public void changeOrderLineQuantity(@RequestBody Map<String, Object> payload) {
-        orderService.setOrderLineQuantity(payload);
+    public void updateOrderLineProductQuantity(@RequestBody Map<String, Object> payload) {
+        orderService.updateOrderLineProductQuantity(payload);
     }
 
 }
