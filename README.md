@@ -22,7 +22,7 @@
     - SpringBoot and SpringData (JPA) + Lombok 
     - Database for main project was PostgreSQL 14.2
     - Database for tests was H2 (in-memory).
-    - Docker with Docker Compose for containerize (IN DEV PROGRESS)
+    - Docker with Docker Compose for containerize 
 
 
 ## Project Architecture
@@ -103,8 +103,15 @@
 # How To
 
 ## Run an application with docker (The Easiest way)
-Please install a docker. 
+Please move to the branch: <a href="https://github.com/altrof/kn-assessment-spring/tree/docker"> _`docker`_ </a>
 
 
 ## Run an application without docker
-Need to configure file application.properties.
+1. Clone repo from main branch.
+2. You may have a Postgresql or another SQL on your PC. 
+   But if you choose or have another SQL, then you'll have to tweak a bit more.
+3. You have to create a database, at example in my project its "store".
+4. In project file application.properties you have to change: <br>
+    Database name into url and username with password. (for PostgreSQL) <br>
+    For another SQL you have to configure file application.properties as in docs.
+5. When database successfully connected with project, then you will need only RUN.
